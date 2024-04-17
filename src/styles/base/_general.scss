@@ -1,0 +1,277 @@
+:root {
+  --c-prime: #28e0b4;
+  --c-black: #060910;
+
+  --container-padding: 1rem;
+}
+
+body,
+html {
+  &.noskroll {
+    overflow: hidden;
+  }
+}
+
+html {
+  width: 100%;
+  font-size: 0.625vw;
+  height: stretch;
+
+  /*   @media screen and (max-width: $lg) {
+    font-size: 62.5%;
+  } */
+}
+
+body {
+  position: relative;
+  min-height: stretch;
+  min-width: 320px;
+  background: #1a181a;
+  color: #f1f1f1;
+  font-family: "Inter Tight", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Lenis base styles */
+
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+.page {
+  /* padding-top: 9rem; */
+  /*  overflow: hidden; */
+  padding-bottom: 1000lvh;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+
+  &.is-initial {
+    max-width: initial;
+    max-height: initial;
+  }
+
+  &.fit-cover {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+video {
+  max-width: 100%;
+  max-height: 100%;
+
+  &.is-initial {
+    max-width: initial;
+    max-height: initial;
+  }
+
+  &.fit-cover {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+strong {
+  font-weight: 600;
+}
+
+.semibold {
+  font-weight: 500;
+}
+
+canvas {
+  display: block;
+}
+
+ul {
+  list-style-position: inside;
+
+  li {
+    list-style-type: disc;
+  }
+}
+
+.container {
+  padding: 0 var(--container-padding);
+}
+
+.custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background: #000;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background-color: #fff;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  @supports not selector(::-webkit-scrollbar) {
+    scrollbar-color: #000 #eee;
+    scrollbar-width: thin;
+  }
+}
+
+.hidden-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.is-underline-in {
+  position: relative;
+  max-width: max-content;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: calc(-2px);
+    border-bottom: 0.05em solid currentColor;
+    transform-origin: left;
+    transform: scale(0, 1);
+    transition: 0.2s ease-in-out;
+  }
+
+  &:hover {
+    &::after {
+      transform: scale(1, 1);
+    }
+  }
+}
+
+.sub20 {
+  font-size: 2rem;
+  line-height: 110%;
+
+  @media screen and (max-width: $sm) {
+    font-size: 1.8rem;
+  }
+}
+
+/* h1,
+.h1 {
+  font-size: 3.2rem;
+  line-height: 110%;
+
+  @media screen and (max-width: $sm) {
+    font-size: 2.2rem;
+  }
+}
+
+h2,
+.h2 {
+  font-size: 6.4rem;
+  line-height: 120%;
+
+  @media screen and (max-width: $lg) {
+    font-size: 4.8rem;
+  }
+
+  @media screen and (max-width: $sm) {
+    font-size: 4rem;
+  }
+} */
+
+/* .custom-toast {
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 999999;
+  will-change: transform;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(0, -50%) scale(0.9);
+
+  &.is-enter {
+    animation: toastEnter 0.2s ease-out forwards;
+  }
+
+  &.is-out {
+    animation: toastOut 0.2s ease-out forwards;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: rgb(54, 54, 54);
+    background: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px, rgba(0, 0, 0, 0.05) 0px 3px 3px;
+    max-width: 350px;
+    pointer-events: auto;
+    padding: 0.8rem 1rem;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    min-height: 2rem;
+  }
+}
+
+@keyframes toastEnter {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(0, -50%) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0, 1rem) scale(1);
+  }
+}
+
+@keyframes toastOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0, 1rem) scale(1);
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(0, -50%) scale(0.9);
+  }
+}
+ */

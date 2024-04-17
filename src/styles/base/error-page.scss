@@ -1,0 +1,38 @@
+.error-page {
+  height: 100svh;
+  background: var(--c-black);
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  &__logo {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+
+    @media screen and (max-width: $md) {
+      position: absolute;
+      top: 4rem;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+
+    svg {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  &__status {
+    font-size: 12rem;
+
+    @media screen and (max-width: $md) {
+      font-size: 10rem;
+    }
+  }
+}

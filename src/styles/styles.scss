@@ -1,0 +1,14 @@
+// Переменные, миксины, функции
+@import "helpers/variables";
+@import "helpers/optimize";
+@import "helpers/media-classes";
+
+// Основное
+@import "base/general";
+@import "base/form-styles";
+@import "base/error-page";
+@import "../blocks/modules/header/header";
+@import "../blocks/modules/footer/footer";
+@import "../blocks/modules/popups/popups";
+
+// Блоки
