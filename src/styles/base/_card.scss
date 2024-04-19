@@ -1,0 +1,38 @@
+.card__img,
+.card__img-wrap,
+.card__img-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.card__img,
+.card__img-inner {
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.card__img,
+.card__img-wrap {
+  overflow: hidden;
+}
+
+.card__img {
+  z-index: -1;
+  pointer-events: none;
+  --columns: 0;
+  --rows: 0;
+}
+
+.card__img {
+  opacity: 0;
+  background-image: none !important;
+}
+
+.card__img-inner {
+  filter: brightness(0.8);
+  width: calc(100% + (var(--columns)) * 1px);
+  height: calc(100% + (var(--rows)) * 1px);
+}

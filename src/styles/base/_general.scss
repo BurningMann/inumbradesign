@@ -1,8 +1,11 @@
 :root {
-  --c-prime: #28e0b4;
-  --c-black: #060910;
+  --c-black: #1a181a;
+  --c-white: #f1f1f1;
 
   --container-padding: 1rem;
+
+  --font-family: "Inter Tight", sans-serif;
+  --second-family: "Instrument Serif", sans-serif;
 }
 
 body,
@@ -26,9 +29,9 @@ body {
   position: relative;
   min-height: stretch;
   min-width: 320px;
-  background: #1a181a;
-  color: #f1f1f1;
-  font-family: "Inter Tight", sans-serif;
+  background: var(--c-black);
+  color: var(--c-white);
+  font-family: var(--font-family);
   font-optical-sizing: auto;
   font-style: normal;
   font-size: 1.4rem;
@@ -64,7 +67,7 @@ html.lenis {
 .page {
   /* padding-top: 9rem; */
   /*  overflow: hidden; */
-  padding-bottom: 1000lvh;
+  /* padding-bottom: 1000lvh; */
 }
 
 img {
@@ -165,7 +168,7 @@ ul {
     position: absolute;
     left: 0;
     bottom: calc(-2px);
-    border-bottom: 0.05em solid currentColor;
+    border-bottom: 0.1em solid currentColor;
     transform-origin: left;
     transform: scale(0, 1);
     transition: 0.2s ease-in-out;
@@ -178,9 +181,23 @@ ul {
   }
 }
 
-.sub20 {
+.is-custom-link {
+  padding: 0.8rem 0.2rem;
+  transition: 0.3s;
+  line-height: 120%;
+  letter-spacing: -0.03em;
+  font-weight: 500;
+
+  &:hover {
+    background: var(--c-white);
+    color: var(--c-black);
+  }
+}
+
+.sub-20 {
   font-size: 2rem;
-  line-height: 110%;
+  line-height: 120%;
+  letter-spacing: -0.03em;
 
   @media screen and (max-width: $sm) {
     font-size: 1.8rem;
@@ -275,3 +292,55 @@ h2,
   }
 }
  */
+
+body:hover > #trailer {
+  opacity: 1;
+}
+
+.interactable {
+  cursor: none;
+}
+
+#trailer {
+  height: 8rem;
+  width: 8rem;
+  background-color: white;
+  border-radius: 50%;
+
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  z-index: 10000;
+
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 500ms ease;
+
+  display: grid;
+  place-items: center;
+}
+
+#trailer:not([data-type=""]) > #trailer-icon {
+  opacity: 1;
+}
+
+#trailer-icon {
+  font-size: 6px;
+  line-height: 4px;
+
+  opacity: 0;
+  transition: opacity 400ms ease;
+
+  svg {
+    display: none;
+  }
+
+  &.is-video {
+    .trailer-video-icon {
+      display: block;
+    }
+  }
+
+  &.is-image {
+  }
+}

@@ -1,3 +1,39 @@
 .footer {
-  
+  display: flex;
+  justify-content: space-between;
+  padding-top: 17rem;
+
+  &__mail {
+    font-family: var(--second-family);
+    font-size: 4.2rem;
+    line-height: 120%;
+    letter-spacing: -0.03em;
+  }
+
+  &__copy {
+    font-family: var(--second-family);
+    font-size: 4.2rem;
+    line-height: 120%;
+    letter-spacing: -0.03em;
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  &__left {
+    display: flex;
+    gap: 18rem;
+  }
+}
+
+.footer-social {
+  display: flex;
+  align-items: flex-start;
+  gap: 6rem;
+
+  &__link {
+    font-family: var(--second-family);
+    font-size: 2rem;
+    line-height: 150%;
+    letter-spacing: -0.03em;
+  }
 }

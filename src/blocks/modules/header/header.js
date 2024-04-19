@@ -1,10 +1,11 @@
-/* import { gsap } from 'gsap';
+import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const header = document.querySelector('.header');
-const headerMobile = header.querySelector('.header__mobile-wrapper');
+const menuHandler = document.querySelector('.js-menu');
+/* const headerMobile = header.querySelector('.header__mobile-wrapper');
 const headerMobileNav = header.querySelector('.header__mobile-wrapper-nav');
 
 headerMobile.addEventListener('click', () => {
@@ -33,22 +34,40 @@ function setActiveLink(id) {
     currentLinks.forEach((item) => item.classList.add('is-active'));
   }
 }
+ */
+
+menuHandler.addEventListener('click', () => {
+  menuHandler.classList.toggle('is-active');
+  header.querySelectorAll('.header-box__row.js-hidden').forEach((el, index) =>
+    setTimeout(() => {
+      el.classList.toggle('is-hidden');
+    }, 50 * index + 1)
+  );
+});
 
 setTimeout(() => {
-  siteSections.forEach((el) => {
-    gsap.to(el, {
-      scrollTrigger: {
-        trigger: el,
-        start: 'top bottom',
-        end: `bottom bottom`,
-        onEnter: () => {
-          setActiveLink(el.id);
-        },
-        onEnterBack: () => {
-          setActiveLink(el.id);
-        },
+  gsap.to(header, {
+    scrollTrigger: {
+      trigger: document.body,
+      start: `${window.innerHeight / 3} top`,
+      end: `${window.innerHeight / 3} top`,
+      onEnter: () => {
+        header.classList.add('is-fixed');
+        header.querySelectorAll('.header-box__row.js-hidden').forEach((el, index) =>
+          setTimeout(() => {
+            el.classList.add('is-hidden');
+          }, 50 * index + 1)
+        );
       },
-    });
+      onEnterBack: () => {
+        header.classList.remove('is-fixed');
+        menuHandler.classList.remove('is-active');
+        header.querySelectorAll('.header-box__row.js-hidden').forEach((el, index) =>
+          setTimeout(() => {
+            el.classList.remove('is-hidden');
+          }, 50 * index + 1)
+        );
+      },
+    },
   });
 }, 0);
- */
