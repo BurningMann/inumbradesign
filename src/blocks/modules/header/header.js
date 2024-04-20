@@ -35,39 +35,40 @@ function setActiveLink(id) {
   }
 }
  */
-
-menuHandler.addEventListener('click', () => {
-  menuHandler.classList.toggle('is-active');
-  header.querySelectorAll('.header-box__row.js-hidden').forEach((el, index) =>
-    setTimeout(() => {
-      el.classList.toggle('is-hidden');
-    }, 50 * index + 1)
-  );
-});
-
-setTimeout(() => {
-  gsap.to(header, {
-    scrollTrigger: {
-      trigger: document.body,
-      start: `${window.innerHeight / 3} top`,
-      end: `${window.innerHeight / 3} top`,
-      onEnter: () => {
-        header.classList.add('is-fixed');
-        header.querySelectorAll('.header-box__row.js-hidden').forEach((el, index) =>
-          setTimeout(() => {
-            el.classList.add('is-hidden');
-          }, 50 * index + 1)
-        );
-      },
-      onEnterBack: () => {
-        header.classList.remove('is-fixed');
-        menuHandler.classList.remove('is-active');
-        header.querySelectorAll('.header-box__row.js-hidden').forEach((el, index) =>
-          setTimeout(() => {
-            el.classList.remove('is-hidden');
-          }, 50 * index + 1)
-        );
-      },
-    },
+if (header && menuHandler) {
+  menuHandler.addEventListener('click', () => {
+    menuHandler.classList.toggle('is-active');
+    header.querySelectorAll('.header-box__row.js-hidden').forEach((el, index) =>
+      setTimeout(() => {
+        el.classList.toggle('is-hidden');
+      }, 50 * index + 1)
+    );
   });
-}, 0);
+
+  setTimeout(() => {
+    gsap.to(header, {
+      scrollTrigger: {
+        trigger: document.body,
+        start: `${window.innerHeight / 3} top`,
+        end: `${window.innerHeight / 3} top`,
+        onEnter: () => {
+          header.classList.add('is-fixed');
+          header.querySelectorAll('.header-box__row.js-hidden').forEach((el, index) =>
+            setTimeout(() => {
+              el.classList.add('is-hidden');
+            }, 50 * index + 1)
+          );
+        },
+        onEnterBack: () => {
+          header.classList.remove('is-fixed');
+          menuHandler.classList.remove('is-active');
+          header.querySelectorAll('.header-box__row.js-hidden').forEach((el, index) =>
+            setTimeout(() => {
+              el.classList.remove('is-hidden');
+            }, 50 * index + 1)
+          );
+        },
+      },
+    });
+  }, 0);
+}

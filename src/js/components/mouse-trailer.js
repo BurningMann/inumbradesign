@@ -18,6 +18,8 @@ const getTrailerClass = (type) => {
   switch (type) {
     case 'video':
       return 'is-video';
+    case 'instagram':
+      return 'is-insta';
     default:
       return 'is-image';
   }

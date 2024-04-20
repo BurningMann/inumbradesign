@@ -187,8 +187,10 @@ ul {
   line-height: 120%;
   letter-spacing: -0.03em;
   font-weight: 500;
+  display: inline-block;
 
-  &:hover {
+  &:hover,
+  &.is-active {
     background: var(--c-white);
     color: var(--c-black);
   }
@@ -341,6 +343,20 @@ body:hover > #trailer {
     }
   }
 
+  &.is-insta {
+    .trailer-insta-icon {
+      display: block;
+    }
+  }
+
   &.is-image {
   }
+}
+
+.trailer-insta-icon {
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 120%;
+  letter-spacing: -0.03em;
+  color: var(--c-black);
 }

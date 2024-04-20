@@ -1,0 +1,50 @@
+.contacts-page {
+  min-height: calc(100lvh - 1rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10lvh;
+
+  &__logo {
+    width: 100%;
+
+    svg {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__info {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: flex-start;
+    margin-top: -2rem;
+
+    &-location {
+      text-align: right;
+    }
+  }
+}
+
+.instagram-section {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 1rem;
+
+  &:hover {
+    cursor: none;
+  }
+
+  &__item {
+    aspect-ratio: 149 / 120;
+
+    &:hover {
+      cursor: none;
+    }
+  }
+}
