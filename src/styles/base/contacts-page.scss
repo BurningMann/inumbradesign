@@ -17,6 +17,10 @@
   &__footer {
     display: flex;
     justify-content: flex-end;
+
+    @media screen and (max-width: $sm) {
+      padding-top: 2rem;
+    }
   }
 
   &__info {
@@ -24,6 +28,20 @@
     grid-template-columns: repeat(5, 1fr);
     align-items: flex-start;
     margin-top: -2rem;
+
+    @media screen and (max-width: $sm) {
+      margin-top: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4rem 0;
+      justify-content: space-between;
+      padding-top: 2rem;
+
+      .header-box__row {
+        width: 100%;
+        flex-direction: row;
+      }
+    }
 
     &-location {
       text-align: right;
@@ -36,12 +54,24 @@
   grid-template-columns: repeat(10, 1fr);
   gap: 1rem;
 
+  @media screen and (max-width: $sm) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+  }
+
   &:hover {
     cursor: none;
   }
 
   &__item {
     aspect-ratio: 149 / 120;
+
+    @media screen and (max-width: $sm) {
+      &:nth-child(9),
+      &:nth-child(10) {
+        display: none;
+      }
+    }
 
     &:hover {
       cursor: none;

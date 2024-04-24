@@ -1,10 +1,19 @@
 .projects-page {
-  padding-top: 40lvh;
+  padding-top: calc(60lvh - 20rem);
+
+  @media screen and (max-width: $sm) {
+    padding-top: 10rem;
+  }
 
   &__start-content {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    margin-bottom: 17rem;
+    margin-bottom: calc(40lvh - 20rem);
+
+    @media screen and (max-width: $sm) {
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   &__start-content-inner {
@@ -31,37 +40,56 @@
   flex-wrap: wrap;
   gap: 23rem calc(100% / 5);
 
+  @media screen and (max-width: $sm) {
+    gap: 4rem 1rem;
+  }
+
   &__item {
     width: calc(100% / 5);
 
+    @media screen and (max-width: $sm) {
+      width: calc(100%);
+    }
+
     .project-card__info {
       display: none;
+
+      @media screen and (max-width: $sm) {
+        display: block;
+      }
     }
 
     .project-card__image {
       aspect-ratio: 77 / 104;
-    }
 
-    &:nth-child(5n + 1) {
-      width: calc((100% / 5) * 2);
-
-      .project-card__info {
-        display: block;
-      }
-
-      .project-card__image {
+      @media screen and (max-width: $sm) {
         aspect-ratio: 313 / 219;
       }
     }
-    &:nth-child(5n + 2) {
-      width: calc((100% / 5) * 2);
 
-      .project-card__info {
-        display: block;
+    @media screen and (min-width: $sm) {
+      &:nth-child(5n + 1) {
+        width: calc((100% / 5) * 2);
+
+        .project-card__info {
+          display: block;
+        }
+
+        .project-card__image {
+          aspect-ratio: 313 / 219;
+        }
       }
 
-      .project-card__image {
-        aspect-ratio: 313 / 219;
+      &:nth-child(5n + 2) {
+        width: calc((100% / 5) * 2);
+
+        .project-card__info {
+          display: block;
+        }
+
+        .project-card__image {
+          aspect-ratio: 313 / 219;
+        }
       }
     }
   }

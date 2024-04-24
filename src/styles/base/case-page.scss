@@ -1,0 +1,139 @@
+.case-start {
+  height: 100lvh;
+  position: relative;
+  margin-bottom: 1rem;
+
+  &__content {
+    position: absolute;
+    right: var(--container-padding);
+    bottom: var(--container-padding);
+    width: 60rem;
+    max-width: 100%;
+  }
+
+  &__content-bottom {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__content-bottom-right {
+    display: flex;
+    gap: 13rem;
+  }
+
+  &__content-link {
+    font-weight: 500;
+    line-height: 120%;
+  }
+
+  &__content-info {
+    text-align: right;
+    font-weight: 500;
+    line-height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__content-date {
+    font-family: var(--second-family);
+    font-size: 1.6rem;
+    line-height: 150%;
+    letter-spacing: -0.03em;
+    text-align: right;
+  }
+
+  &__title {
+    font-size: 6rem;
+    line-height: 100%;
+    letter-spacing: -0.03em;
+    border-bottom: 1px solid var(--c-white);
+    margin-bottom: 1rem;
+  }
+}
+
+.case-section {
+  margin-bottom: 1rem;
+
+  &__image-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4.5rem 1rem;
+  }
+
+  &__content {
+  }
+
+  &__content-inner {
+    max-width: 47rem;
+  }
+
+  &__images-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  &__text {
+    font-weight: 500;
+    line-height: 150%;
+    letter-spacing: -0.03em;
+    text-align: justify;
+  }
+
+  &__center-text {
+    font-weight: 500;
+    font-size: 2.8rem;
+    line-height: 150%;
+    letter-spacing: -0.03em;
+    text-align: center;
+  }
+
+  &__center-text-inner {
+    max-width: 95rem;
+    margin: 0 auto;
+  }
+
+  &__center-media {
+    padding: 8.2rem 1rem;
+    margin: 0 -1rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  &.type-1 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  &.type-2 {
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+
+    .case-section__content {
+      padding-bottom: 20rem;
+    }
+
+    .case-section__center-text {
+      padding: 24rem 0;
+    }
+  }
+
+  &.type-3 {
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+
+    .case-section__content {
+      padding-bottom: 20rem;
+    }
+  }
+}
+
+.case-more {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  padding-top: 17rem;
+}
