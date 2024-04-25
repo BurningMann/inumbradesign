@@ -53,10 +53,6 @@
 
     .project-card__info {
       display: none;
-
-      @media screen and (max-width: $sm) {
-        display: block;
-      }
     }
 
     .project-card__image {
