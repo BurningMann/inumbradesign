@@ -47,6 +47,22 @@
       z-index: 5;
     }
   }
+}
+
+.showreel {
+  padding-top: calc(100lvh - 21rem);
+
+  @media screen and (max-width: $sm) {
+    padding-top: 10lvh;
+  }
+}
+
+.showreel-item {
+  &.is-empty {
+    @media screen and (max-width: $sm) {
+      display: none;
+    }
+  }
 
   &.is-large {
     .project-card__image {
@@ -66,20 +82,8 @@
         aspect-ratio: 173 / 218;
       }
     }
-  }
-}
 
-.showreel {
-  padding-top: calc(100lvh - 21rem);
-
-  @media screen and (max-width: $sm) {
-    padding-top: 10lvh;
-  }
-}
-
-.showreel-item {
-  &.is-empty {
-    @media screen and (max-width: $sm) {
+    .project-card__info {
       display: none;
     }
   }

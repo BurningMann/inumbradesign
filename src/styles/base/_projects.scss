@@ -44,7 +44,7 @@
     gap: 4rem 1rem;
   }
 
-  &__item {
+  .projects-grid__item {
     width: calc(100% / 5);
 
     @media screen and (max-width: $sm) {

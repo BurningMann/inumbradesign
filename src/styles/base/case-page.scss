@@ -200,10 +200,37 @@
 }
 
 .case-more {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
+  justify-content: flex-end;
   gap: 1rem;
   padding-top: 17rem;
+  position: relative;
+
+  @media screen and (min-width: $sm) {
+    .projects-grid__item {
+      width: calc(100% / 5 - 1rem);
+    }
+
+    .showreel-link {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  .project-card {
+    .project-card__info {
+      display: none;
+    }
+
+    .project-card__image {
+      aspect-ratio: 77/104;
+
+      @media screen and (max-width: $sm) {
+        aspect-ratio: 173 / 218;
+      }
+    }
+  }
 
   @media screen and (max-width: $sm) {
     padding-top: 4rem;
