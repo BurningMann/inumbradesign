@@ -66,8 +66,37 @@ const settingsArray = [
   },
 ];
 
+let loop = 0;
+let loopMax = 5;
+[...document.querySelectorAll('.projects-grid .projects-grid__item')].forEach((el, index) => {
+  if (index <= 1) {
+    el.classList.add('is-large');
+
+    return;
+  }
+
+  loop += 1;
+
+  if (loop === 4 || loop === 5) {
+    el.classList.add('is-large');
+  }
+
+  if (loop === loopMax) {
+    loop = 0;
+  }
+});
+
 // Initialize the Cards
 [...document.querySelectorAll('.project-card.animated')].forEach((cardEl, index) => {
+  const cardImgVertical = cardEl.querySelector('.card__img.is-vertical');
+  const cardImgHorizontal = cardEl.querySelector('.card__img.is-horizontal');
+
+  if (cardEl.closest('.is-large') && cardImgVertical) {
+    cardImgVertical.remove();
+  } else if (cardImgHorizontal) {
+    cardImgHorizontal.remove();
+  }
+
   new Card(cardEl, settingsArray[0]);
 });
 
